@@ -10,6 +10,6 @@ A *bulleted* list:
 - As a user, I want to be able to add a swimmer, their events, and their times (arbitrary X) to a list of participating swimmers (Y).
 - As a user, I want to be able to view a list of all participating swimmers (list all the Xs in my Y).
 - As a user, I want to be able to organize the list of participating swimmers into heats based on their events and time.
-- As a user, I want to be able to lookup my name to find my event and my lane. 
+- As a user, I want to be able to lookup my name to find my events.
 
 An example of text with **bold** and *italic* fonts.  
