@@ -1,16 +1,27 @@
 package model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 // Represents a swimmer with, a name, Events, and gender 
 public class Swimmer {
     String swimmerName; //the name of the swimmer
-    List<Event> events; // list of the swimmers events
+    ArrayList<Event> events; // list of the swimmers events
 
-    public Swimmer(String name, Event events) {
+    public Swimmer(String name, ArrayList<Event> events) {
 
     }
 
+    //REQUIRES: event must be one of fly, back, breast, or free
+    //EFFECTS: takes an event name, returns true if the swimmer has that event, false otherwise
+    public boolean checkIfSwimmerHasEvent(String event) {
+        return false;
+    }
+
+    //MODIFIES: this
+    //EFFECTS: adds an event to the swimmer's events
+    public void addEvent(Event event) {
+
+    }
 
     //getters and setters
 
@@ -18,7 +29,7 @@ public class Swimmer {
         return null;
     }
 
-    public List<Event> getSwimmerEvents() {
+    public ArrayList<Event> getSwimmerEvents() {
         return null;
     }
 }
