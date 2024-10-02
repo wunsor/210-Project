@@ -1,10 +1,11 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 // Represents a list of participating swimmers at a swim meet
 public class ParticipatingSwimmers {
-    private List<Swimmer> swimmers; //a list of swimmers
+    private ArrayList<Swimmer> swimmers; //a list of swimmers
 
     //EFFECT: a list of all participating swimmer which is empty when initialized
     public ParticipatingSwimmers() {
@@ -14,13 +15,13 @@ public class ParticipatingSwimmers {
     //REQUIRES: event must be one of fly, back, breast, or free
     //EFFECTS: takes an event name, filters the list for only the swimmers which swim that event, 
     //         then re-arranges them from fastest to slowest times 
-    public List<Swimmer> organizeIntoHeats(String event) {
+    public ArrayList<Swimmer> organizeIntoHeats(String event) {
         return null;
 
     }
 
     //EFFECTS: takes a swimmer's name, returns their events as a string 
-    public List<String> lookupSwimmersEvents(String name) {
+    public ArrayList<String> lookupSwimmersEvents(String name) {
         return null;
 
     }

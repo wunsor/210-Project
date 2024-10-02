@@ -3,6 +3,7 @@ package model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -22,12 +23,28 @@ public class ParticipatingSwimmersTest {
     Event e4 = new Event("breast", 4);
     Event e5 = new Event("fly", 4);
     
-    Event[] eventList1 = {e1, e2};
-    Event[] eventList2 = {e4, e2, e3};
-    Event[] eventList3 = {e4, e2, e5, e3};
+    //Event[] eventList1 = {e1, e2};
+    //Event[] eventList2 = {e4, e2, e3};
+    //Event[] eventList3 = {e4, e2, e5, e3};
+
+    ArrayList<Event> eventList1;
+    ArrayList<Event> eventList2;
+    ArrayList<Event> eventList3;
 
     @BeforeEach
     void runBefore() {
+        eventList1.add(e1);
+        eventList1.add(e2);
+
+        eventList2.add(e4);
+        eventList2.add(e2);
+        eventList2.add(e3);
+
+        eventList3.add(e4);
+        eventList3.add(e2);
+        eventList3.add(e5);
+        eventList3.add(e3);
+
         s1 = new Swimmer("john", eventList1);
         s2 = new Swimmer("jack", eventList2);
         s3 = new Swimmer("gill", eventList3);
@@ -45,7 +62,7 @@ public class ParticipatingSwimmersTest {
         pswimmersTest.addSwimmer(s1);
         pswimmersTest.addSwimmer(s2);
         pswimmersTest.addSwimmer(s3);
-        List<Swimmer> returnedList = pswimmersTest.organizeIntoHeats("fly");
+        ArrayList<Swimmer> returnedList = pswimmersTest.organizeIntoHeats("fly");
         assertEquals(2, returnedList.size());
         assertEquals("john", returnedList.get(0).getSwimmerName());
         assertEquals("gill", returnedList.get(1).getSwimmerName());
