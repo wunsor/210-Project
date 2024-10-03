@@ -7,16 +7,18 @@ public class Event {
 
     // REQUIRES: name must be one of fly, back, breast, or free. time is a time in seconds
     public Event(String name, double time) {
+        this.eventName = name;
+        this.eventTime = time;
 
     }
 
     //setters and getters
     public String getEventName() {
-        return null;
+        return this.eventName;
     }
 
     public double getEventTime() {
-        return 0;
+        return this.eventTime;
     }
 
 }
