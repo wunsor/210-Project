@@ -33,6 +33,10 @@ public class ParticipatingSwimmersTest {
 
     @BeforeEach
     void runBefore() {
+        eventList1 = new ArrayList<>();
+        eventList2 = new ArrayList<>();
+        eventList3 = new ArrayList<>();
+
         eventList1.add(e1);
         eventList1.add(e2);
 
@@ -49,6 +53,7 @@ public class ParticipatingSwimmersTest {
         s2 = new Swimmer("jack", eventList2);
         s3 = new Swimmer("gill", eventList3);
         s4 = new Swimmer("terry", eventList3);
+
         pswimmersTest = new ParticipatingSwimmers();
     }
 

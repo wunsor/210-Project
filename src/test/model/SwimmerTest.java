@@ -24,6 +24,10 @@ public class SwimmerTest {
     
     @BeforeEach
     void runBefore() {
+        eventList1 = new ArrayList<>();
+        eventList2 = new ArrayList<>();
+        eventList3 = new ArrayList<>();
+
         eventList1.add(e1);
         eventList1.add(e2);
 
@@ -58,6 +62,8 @@ public class SwimmerTest {
         s1.addEvent(e4);
         assertEquals(3, s1.getSwimmerEvents().size());
         assertEquals(eventList3, s1.getSwimmerEvents());
+        s1.addEvent(e3);
+        assertEquals(4, s1.getSwimmerEvents().size());
     }
 }
 

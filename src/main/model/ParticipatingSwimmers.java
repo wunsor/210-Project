@@ -40,7 +40,7 @@ public class ParticipatingSwimmers {
 
     // setters and getters
 
-    public List<Swimmer> getParticipatingSwimmers(){
+    public ArrayList<Swimmer> getParticipatingSwimmers(){
         return null;
     }
 
