@@ -16,22 +16,27 @@ public class Swimmer {
     //REQUIRES: event must be one of fly, back, breast, or free
     //EFFECTS: takes an event name, returns true if the swimmer has that event, false otherwise
     public boolean checkIfSwimmerHasEvent(String event) {
+        for (Event e: events){
+            if(e.getEventName()==event){
+                return true;
+            }
+        }
         return false;
     }
 
     //MODIFIES: this
     //EFFECTS: adds an event to the swimmer's events
     public void addEvent(Event event) {
-
+        this.events.add(event);
     }
 
     //getters and setters
 
     public String getSwimmerName() {
-        return null;
+        return this.swimmerName;
     }
 
     public ArrayList<Event> getSwimmerEvents() {
-        return null;
+        return this.events;
     }
 }
