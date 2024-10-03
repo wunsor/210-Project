@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 // Represents a list of participating swimmers at a swim meet
 public class ParticipatingSwimmers {
