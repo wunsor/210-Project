@@ -16,8 +16,8 @@ public class Swimmer {
     //REQUIRES: event must be one of fly, back, breast, or free
     //EFFECTS: takes an event name, returns true if the swimmer has that event, false otherwise
     public boolean checkIfSwimmerHasEvent(String event) {
-        for (Event e: events){
-            if(e.getEventName()==event){
+        for (Event e: events) {
+            if (e.getEventName() == event) {
                 return true;
             }
         }
