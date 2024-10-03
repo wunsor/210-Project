@@ -29,11 +29,15 @@ public class ParticipatingSwimmersTest {
     ArrayList<Event> eventList2;
     ArrayList<Event> eventList3;
 
+    ArrayList<String> eventStringList1;
+
     @BeforeEach
     void runBefore() {
         eventList1 = new ArrayList<>();
         eventList2 = new ArrayList<>();
         eventList3 = new ArrayList<>();
+
+        eventStringList1 = new ArrayList<>();
 
         eventList1.add(e1);
         eventList1.add(e2);
@@ -46,6 +50,9 @@ public class ParticipatingSwimmersTest {
         eventList3.add(e2);
         eventList3.add(e5);
         eventList3.add(e3);
+
+        eventStringList1.add("fly");
+        eventStringList1.add("back");
 
         s1 = new Swimmer("john", eventList1);
         s2 = new Swimmer("jack", eventList2);
@@ -76,7 +83,7 @@ public class ParticipatingSwimmersTest {
         pswimmersTest.addSwimmer(s1);
         pswimmersTest.addSwimmer(s2);
         pswimmersTest.addSwimmer(s3);
-        assertEquals("fly,back", pswimmersTest.lookupSwimmersEvents("john"));
+        assertEquals(eventStringList1, pswimmersTest.lookupSwimmersEvents("john"));
 
     }
 
