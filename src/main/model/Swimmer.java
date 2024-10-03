@@ -8,6 +8,8 @@ public class Swimmer {
     ArrayList<Event> events; // list of the swimmers events
 
     public Swimmer(String name, ArrayList<Event> events) {
+        this.swimmerName = name;
+        this.events = events;
 
     }
 
