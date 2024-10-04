@@ -15,7 +15,15 @@ public class ParticipatingSwimmers {
     //EFFECTS: takes an event name, filters the list for only the swimmers which swim that event, 
     //         then re-arranges them from fastest to slowest times 
     public ArrayList<Swimmer> organizeIntoHeats(String event) {
-        return null;
+        ArrayList<Swimmer> list;
+        list = new ArrayList<>();
+        for (Swimmer s : swimmers) {
+            if (s.checkIfSwimmerHasEvent(event)) {
+                list.add(s);
+            }
+        }
+        //TODO: need a quicksort function?
+        return list;
 
     }
 
