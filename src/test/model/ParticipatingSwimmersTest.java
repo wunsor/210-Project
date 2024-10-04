@@ -27,6 +27,8 @@ public class ParticipatingSwimmersTest {
 
     ArrayList<String> eventStringList1;
     ArrayList<String> emptyList;
+    ArrayList<Double> emptyDoubleList;
+    ArrayList<Swimmer> emptySwimmerList;
 
     @BeforeEach
     void runBefore() {
@@ -36,6 +38,7 @@ public class ParticipatingSwimmersTest {
 
         eventStringList1 = new ArrayList<>();
         emptyList = new ArrayList<>();
+        emptyDoubleList = new ArrayList<>();
 
         eventList1.add(e1);
         eventList1.add(e2);
@@ -114,5 +117,17 @@ public class ParticipatingSwimmersTest {
 
     }
 
-    
+    @Test
+    void testRemoveSwimmerEmptyCase() {
+        pswimmersTest.addSwimmer(s1);
+        pswimmersTest.removeSwimmer("z");
+        assertEquals(1, pswimmersTest.getParticipatingSwimmers().size());
+
+    }
+
+    @Test
+    void testMatchSwimmerToTime() {
+        pswimmersTest.addSwimmer(s1);
+        pswimmersTest.matchSwimmerToTime("e", pswimmersTest.getParticipatingSwimmers(), emptySwimmerList, 10.1);;
+    }
 }
