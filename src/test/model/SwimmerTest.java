@@ -65,5 +65,11 @@ public class SwimmerTest {
         s1.addEvent(e3);
         assertEquals(4, s1.getSwimmerEvents().size());
     }
+
+    @Test
+    void testGetSpecificEventTime() {
+        assertEquals(1,s1.getSpecificEventTime("fly"));
+        assertEquals(0,s1.getSpecificEventTime("a"));
+    }
 }
 
