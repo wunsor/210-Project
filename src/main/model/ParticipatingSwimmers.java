@@ -18,10 +18,10 @@ public class ParticipatingSwimmers {
         ArrayList<Swimmer> initialList;
         ArrayList<Double> listForTimes;
         ArrayList<Swimmer> finalList;
+        finalList = new ArrayList<>();
 
         initialList = new ArrayList<>();
         listForTimes = new ArrayList<>();
-        finalList = new ArrayList<>();
         
         for (Swimmer s : swimmers) {
             if (s.checkIfSwimmerHasEvent(event)) {
@@ -35,17 +35,23 @@ public class ParticipatingSwimmers {
         });
 
         for (Double d : listForTimes) {
-            for (int i = 0; i < initialList.size(); i++) {
-                if (initialList.get(i).getSpecificEventTime(event) == d) {
-                    finalList.add(initialList.get(i));
-                    initialList.remove(initialList.get(i));
-                    break;
-                }
-            }
+            matchSwimmerToTime(event, initialList, finalList, d);
         }
 
         return finalList;
 
+    }
+
+    //REQUIRES: event must be one of fly, back, breast, or free
+    //EFFECTS: matches each swimmer to a time
+    public void matchSwimmerToTime(String e, ArrayList<Swimmer> inList, ArrayList<Swimmer> fiList, Double d) {
+        for (int i = 0; i < inList.size(); i++) {
+            if (inList.get(i).getSpecificEventTime(e) == d) {
+                fiList.add(inList.get(i));
+                inList.remove(inList.get(i));
+                break;
+            }
+        }
     }
 
     //REQUIRES: name must be one the swimmers names already in the list
