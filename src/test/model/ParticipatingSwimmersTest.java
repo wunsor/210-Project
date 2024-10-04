@@ -20,10 +20,6 @@ public class ParticipatingSwimmersTest {
     Event e3 = new Event("free", 3);
     Event e4 = new Event("breast", 4);
     Event e5 = new Event("fly", 4);
-    
-    //Event[] eventList1 = {e1, e2};
-    //Event[] eventList2 = {e4, e2, e3};
-    //Event[] eventList3 = {e4, e2, e5, e3};
 
     ArrayList<Event> eventList1;
     ArrayList<Event> eventList2;
@@ -79,6 +75,19 @@ public class ParticipatingSwimmersTest {
         assertEquals("john", returnedList.get(0).getSwimmerName());
         assertEquals("gill", returnedList.get(1).getSwimmerName());
     }
+
+    @Test
+    void testOrganizeIntoHeatsOutOfOrder() {
+        pswimmersTest.addSwimmer(s3);
+        pswimmersTest.addSwimmer(s2);
+        pswimmersTest.addSwimmer(s1);
+        ArrayList<Swimmer> returnedList = pswimmersTest.organizeIntoHeats("fly");
+        assertEquals(2, returnedList.size());
+        assertEquals("john", returnedList.get(0).getSwimmerName());
+        assertEquals("gill", returnedList.get(1).getSwimmerName());
+    }
+
+
 
     @Test
     void testLookupSwimmersEvents() {
