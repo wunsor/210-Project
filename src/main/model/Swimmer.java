@@ -30,6 +30,17 @@ public class Swimmer {
         this.events.add(event);
     }
 
+    //REQUIRES: eventName is one of fly, back, breast, free
+    //EFFECTS: finds an event with the same name and returns that time, returns 0 otherwise
+    public double getSpecificEventTime(String eventName) {
+        for (Event e : events) {
+            if (e.getEventName() == eventName) {
+                return e.getEventTime();
+            }
+        }
+        return 0;
+    }    
+
     //getters and setters
 
     public String getSwimmerName() {
