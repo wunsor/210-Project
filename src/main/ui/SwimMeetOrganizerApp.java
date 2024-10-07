@@ -50,7 +50,8 @@ public class SwimMeetOrganizerApp {
         System.out.println("w: Remove a swimmer");
         System.out.println("e: Lookup a swimmer");
         System.out.println("r: See all swimmers participating");
-        System.out.println("t: Quit application");
+        System.out.println("t: Create heats");
+        System.out.println("y: Quit application");
         divider();
     }
 
@@ -72,28 +73,78 @@ public class SwimMeetOrganizerApp {
                 break;
             case "t":
                 doCreateHeats();
+                break;
             case "y":
                 quitProgram();
                 break;
             default:
                 System.out.println("Invalid input! Please try again!");
-                ;
         }
         divider();
 
     }
 
+    // EFFECTS: creates heats based on an event
     private void doCreateHeats() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'doCreateHeats'");
+        divider();
+        System.out.println("Would you like to make events for fly, back, breast, or free?");
+        switch (this.scanner.nextLine()) {
+            case "fly":
+                handleHeatCreation("fly");
+                break;
+            case "back":
+                handleHeatCreation("back");
+                break;
+            case "breast":
+                handleHeatCreation("breast");
+                break;
+            case "free":
+                handleHeatCreation("free");
+                break;
+
+            default:
+                System.out.println("Invaild event name! Try again!");
+        }
     }
 
+    // EFFECTS: prints heats and lane assignments for the swimmers in an event
+    private void handleHeatCreation(String eventName) {
+        ArrayList<Swimmer> swimmersInEvent;
+        swimmersInEvent = participatingSwimmers.organizeIntoHeats(eventName);
+
+        divider();
+        System.out.println("The heats for" + " " + eventName + " " + "are:");
+        Boolean stillPrintingHeats = true;
+        Boolean stillCountingLanes = true;
+        int heatNumber = 1;
+
+        while (stillPrintingHeats) {
+            System.out.println("Heat " + heatNumber + ":");
+            int swimmerCounter = 0;
+            int laneCounter = 1;
+            while (laneCounter <= 10 && stillCountingLanes) {   
+                System.out.println("Lane " + laneCounter + ": " + swimmersInEvent.get(swimmerCounter).getSwimmerName());
+                swimmerCounter++;
+                laneCounter++;
+                if (swimmerCounter + 1 > swimmersInEvent.size()) {
+                    stillCountingLanes = false;
+                    stillPrintingHeats = false;
+                }
+            }
+            heatNumber++;
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: quits the program
     private void quitProgram() {
         System.out.println("Thanks for using Winsor's Swim meet organizer!");
         programRunStatus = false;
     }
 
+    // EFFECTS: returns the name of every participating swimmer
     private void doSeeAllSwimmers() {
+        divider();
         System.out.println("Printing all swimmer names!");
         for (Swimmer s : participatingSwimmers.getParticipatingSwimmers()) {
             System.out.println(s.getSwimmerName());
@@ -101,6 +152,7 @@ public class SwimMeetOrganizerApp {
 
     }
 
+    // EFFECTS: return all the events of a swimmer
     private void doLookupSwimmer() {
         divider();
         System.out.println("What is the swimmer's name?");
@@ -110,8 +162,8 @@ public class SwimMeetOrganizerApp {
 
             eventsList = participatingSwimmers.lookupSwimmersEvents(answeredName);
 
-            System.out.println(answeredName + "'s" + "events are:") ;
-            for(String s : eventsList) {
+            System.out.println(answeredName + "'s" + "events are:");
+            for (String s : eventsList) {
                 System.out.println(s);
             }
 
