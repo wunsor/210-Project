@@ -39,7 +39,9 @@ public class Swimmer {
             }
         }
         return 0;
-    }    
+    }   
+    
+    
 
     //getters and setters
 

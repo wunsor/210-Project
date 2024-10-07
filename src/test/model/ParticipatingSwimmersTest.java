@@ -1,6 +1,8 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
@@ -130,4 +132,19 @@ public class ParticipatingSwimmersTest {
         pswimmersTest.addSwimmer(s1);
         pswimmersTest.matchSwimmerToTime("e", pswimmersTest.getParticipatingSwimmers(), emptySwimmerList, 10.1);;
     }
+
+    @Test
+    void testIsSwimmerParticipating() {
+        pswimmersTest.addSwimmer(s1);
+        pswimmersTest.addSwimmer(s2);
+        assertTrue(pswimmersTest.isSwimmerParticipating("jack"));
+    }
+
+    @Test
+    void testIsSwimmerParticipatingFalseCase() {
+        pswimmersTest.addSwimmer(s1);
+        pswimmersTest.addSwimmer(s2);
+        assertFalse(pswimmersTest.isSwimmerParticipating("terry"));
+    }
+        
 }

@@ -88,6 +88,19 @@ public class ParticipatingSwimmers {
         }
     }
 
+    //EFFECTS: checks if a swimmer name exists within participating swimmers
+    public Boolean isSwimmerParticipating(String name) {
+        for (Swimmer s : swimmers) {
+            if (s.getSwimmerName() == name) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
     // setters and getters
 
     public ArrayList<Swimmer> getParticipatingSwimmers() {
