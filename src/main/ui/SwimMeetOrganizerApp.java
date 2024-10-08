@@ -55,7 +55,7 @@ public class SwimMeetOrganizerApp {
         divider();
     }
 
-    // EFFECTS: takes a menu input from the user and processes it
+    // EFFECTS: takes a menu input from the user and processes itC
     public void processMenu(String input) {
         divider();
         switch (input) {
@@ -130,10 +130,12 @@ public class SwimMeetOrganizerApp {
                     laneCounter++;
                     if (swimmerCounter + 1 > swimmersInEvent.size()) {
                         stillCountingLanes = false;
-                        stillPrintingHeats = false;
                     }
                 }
                 heatNumber++;
+                if (swimmerCounter + 1 > swimmersInEvent.size()) {
+                    stillPrintingHeats = false;
+                }
             }
         } else {
             System.out.println("Can't create heat as no swimmers are swimming this event!"); 
