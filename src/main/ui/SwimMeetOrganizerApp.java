@@ -81,7 +81,6 @@ public class SwimMeetOrganizerApp {
                 System.out.println("Invalid input! Please try again!");
         }
         divider();
-
     }
 
     // EFFECTS: creates heats based on an event
@@ -118,21 +117,28 @@ public class SwimMeetOrganizerApp {
         Boolean stillCountingLanes = true;
         int heatNumber = 1;
 
-        while (stillPrintingHeats) {
-            System.out.println("Heat " + heatNumber + ":");
-            int swimmerCounter = 0;
-            int laneCounter = 1;
-            while (laneCounter <= 10 && stillCountingLanes) {   
-                System.out.println("Lane " + laneCounter + ": " + swimmersInEvent.get(swimmerCounter).getSwimmerName());
-                swimmerCounter++;
-                laneCounter++;
-                if (swimmerCounter + 1 > swimmersInEvent.size()) {
-                    stillCountingLanes = false;
-                    stillPrintingHeats = false;
+        if (swimmersInEvent.size() != 0) {
+            while (stillPrintingHeats) {
+                divider();
+                System.out.println("Heat " + heatNumber + ":");
+                int swimmerCounter = 0;
+                int laneCounter = 1;
+                while (laneCounter <= 10 && stillCountingLanes) {  
+                    String swimmerNameInLane =  swimmersInEvent.get(swimmerCounter).getSwimmerName();
+                    System.out.println("Lane " + laneCounter + ": " + swimmerNameInLane);
+                    swimmerCounter++;
+                    laneCounter++;
+                    if (swimmerCounter + 1 > swimmersInEvent.size()) {
+                        stillCountingLanes = false;
+                        stillPrintingHeats = false;
+                    }
                 }
+                heatNumber++;
             }
-            heatNumber++;
+        } else {
+            System.out.println("Can't create heat as no swimmers are swimming this event!"); 
         }
+        
     }
 
     // MODIFIES: this
@@ -145,7 +151,7 @@ public class SwimMeetOrganizerApp {
     // EFFECTS: returns the name of every participating swimmer
     private void doSeeAllSwimmers() {
         divider();
-        System.out.println("Printing all swimmer names!");
+        System.out.println("Printing all swimmer names!\n");
         for (Swimmer s : participatingSwimmers.getParticipatingSwimmers()) {
             System.out.println(s.getSwimmerName());
         }
@@ -162,7 +168,7 @@ public class SwimMeetOrganizerApp {
 
             eventsList = participatingSwimmers.lookupSwimmersEvents(answeredName);
 
-            System.out.println(answeredName + "'s" + "events are:");
+            System.out.println(answeredName + "'s" + " events are:");
             for (String s : eventsList) {
                 System.out.println(s);
             }
@@ -180,6 +186,7 @@ public class SwimMeetOrganizerApp {
         String answeredName = this.scanner.nextLine();
         if (participatingSwimmers.isSwimmerParticipating(answeredName)) {
             participatingSwimmers.removeSwimmer(answeredName);
+            System.out.println("Swimmer removed!");
 
         } else {
             System.out.println("Swimmer can't be found! Please try again!");
@@ -242,7 +249,7 @@ public class SwimMeetOrganizerApp {
                 return new Event("back", handleEventTime());
 
             case "breast":
-                return new Event("brest", handleEventTime());
+                return new Event("breast", handleEventTime());
 
             case "free":
                 return new Event("free", handleEventTime());
@@ -265,7 +272,7 @@ public class SwimMeetOrganizerApp {
 
     // EFFECTS: prints a divider
     public void divider() {
-        System.out.println("==============================");
+        System.out.println("==================================");
 
     }
 

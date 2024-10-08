@@ -60,7 +60,7 @@ public class ParticipatingSwimmers {
         ArrayList<String> eventsStringList;
         eventsStringList = new ArrayList<>();
         for (Swimmer s : swimmers) {
-            if (s.getSwimmerName() == name) {
+            if (s.getSwimmerName().equals(name)) {
                 for (Event e : s.getSwimmerEvents()) {
                     eventsStringList.add(e.getEventName());
                 }
@@ -82,7 +82,7 @@ public class ParticipatingSwimmers {
     //EFFECTS: takes a swimmers name as a string and removes them from the list of participating swimmers
     public void removeSwimmer(String name) {
         for (int i = 0; i < swimmers.size(); i++) {
-            if (swimmers.get(i).getSwimmerName() == name) {
+            if (swimmers.get(i).getSwimmerName().equals(name)) {
                 this.swimmers.remove(swimmers.get(i));
             }
         }
@@ -91,7 +91,7 @@ public class ParticipatingSwimmers {
     //EFFECTS: checks if a swimmer name exists within participating swimmers
     public Boolean isSwimmerParticipating(String name) {
         for (Swimmer s : swimmers) {
-            if (s.getSwimmerName() == name) {
+            if (s.getSwimmerName().equals(name)) {
                 return true;
             }
         }
