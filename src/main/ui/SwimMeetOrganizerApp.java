@@ -9,9 +9,9 @@ import model.Swimmer;
 
 //SwimMeetOrganizer creates an instance of a swim meet application in the ui.
 public class SwimMeetOrganizerApp {
-    private Scanner scanner;
-    private boolean programRunStatus;
-    private ParticipatingSwimmers participatingSwimmers;
+    private Scanner scanner; // a scanner for read line
+    private boolean programRunStatus; // whether the program is running or not
+    private ParticipatingSwimmers participatingSwimmers; // participating swimmers at the swim meet
 
     // EFFECTS: runs the application
     public SwimMeetOrganizerApp() {
@@ -83,7 +83,7 @@ public class SwimMeetOrganizerApp {
         divider();
     }
 
-    // EFFECTS: creates heats based on an event
+    // EFFECTS: creates heats based on an event name
     private void doCreateHeats() {
         divider();
         System.out.println("Would you like to make events for fly, back, breast, or free?");
@@ -106,7 +106,8 @@ public class SwimMeetOrganizerApp {
         }
     }
 
-    // EFFECTS: prints heats and lane assignments for the swimmers in an event
+    // EFFECTS: prints heats and lane assignments for the swimmers in an event based on
+    //          the organizeIntoHeats specification in ParticipatingSwimmers class
     private void handleHeatCreation(String eventName) {
         ArrayList<Swimmer> swimmersInEvent;
         swimmersInEvent = participatingSwimmers.organizeIntoHeats(eventName);
@@ -116,12 +117,11 @@ public class SwimMeetOrganizerApp {
         Boolean stillPrintingHeats = true;
         Boolean stillCountingLanes = true;
         int heatNumber = 1;
-
+        int swimmerCounter = 0;
         if (swimmersInEvent.size() != 0) {
             while (stillPrintingHeats) {
                 divider();
                 System.out.println("Heat " + heatNumber + ":");
-                int swimmerCounter = 0;
                 int laneCounter = 1;
                 while (laneCounter <= 10 && stillCountingLanes) {  
                     String swimmerNameInLane =  swimmersInEvent.get(swimmerCounter).getSwimmerName();
@@ -148,7 +148,7 @@ public class SwimMeetOrganizerApp {
         programRunStatus = false;
     }
 
-    // EFFECTS: returns the name of every participating swimmer
+    // EFFECTS: returns the name of every participating swimmer in the consol, one line per name
     private void doSeeAllSwimmers() {
         divider();
         System.out.println("Printing all swimmer names!\n");
@@ -158,7 +158,7 @@ public class SwimMeetOrganizerApp {
 
     }
 
-    // EFFECTS: return all the events of a swimmer
+    // EFFECTS: return all the events of a swimmer in the consol, one line per event
     private void doLookupSwimmer() {
         divider();
         System.out.println("What is the swimmer's name?");
@@ -260,7 +260,7 @@ public class SwimMeetOrganizerApp {
         return null;
     }
 
-    // EFFECTS: handles giving a best time to the swimmers event
+    // EFFECTS: handles giving a best time to the swimmer's event
     public Double handleEventTime() {
         Double bestTime;
         divider();
@@ -270,7 +270,7 @@ public class SwimMeetOrganizerApp {
         return bestTime;
     }
 
-    // EFFECTS: prints a divider
+    // EFFECTS: prints a divider in the consol
     public void divider() {
         System.out.println("==================================");
 

@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-// Represents a swimmer with, a name, Events, and gender 
+// Represents a swimmer with, a name, and Events
 public class Swimmer {
     String swimmerName; //the name of the swimmer
     ArrayList<Event> events; // list of the swimmers events
