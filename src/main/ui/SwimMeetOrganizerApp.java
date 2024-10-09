@@ -220,7 +220,7 @@ public class SwimMeetOrganizerApp {
         swimmerEventList.add(handleEvent());
         while (keepAddingEvents) {
             divider();
-            System.out.println("Would you like to add another event for this swimmer?");
+            System.out.println("Would you like to add another event for this swimmer (yes/no)?");
             switch (this.scanner.nextLine()) {
                 case "yes":
                     swimmerEventList.add(handleEvent());
@@ -266,7 +266,7 @@ public class SwimMeetOrganizerApp {
     public Double handleEventTime() {
         Double bestTime;
         divider();
-        System.out.println("Please enter the swimmer's best time for this event:");
+        System.out.println("Please enter the swimmer's best time for this event (in seconds):");
         bestTime = Double.parseDouble(this.scanner.nextLine());
 
         return bestTime;
@@ -274,7 +274,7 @@ public class SwimMeetOrganizerApp {
 
     // EFFECTS: prints a divider in the consol
     public void divider() {
-        System.out.println("==================================");
+        System.out.println("============================================");
 
     }
 
