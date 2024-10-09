@@ -7,7 +7,7 @@ import model.Event;
 import model.ParticipatingSwimmers;
 import model.Swimmer;
 
-//SwimMeetOrganizer creates an instance of a swim meet application in the ui.
+//EFFECTS: creates an instance of a swim meet application in the ui.
 public class SwimMeetOrganizerApp {
     private Scanner scanner; // a scanner for read line
     private boolean programRunStatus; // whether the program is running or not
@@ -153,7 +153,7 @@ public class SwimMeetOrganizerApp {
     // EFFECTS: returns the name of every participating swimmer in the consol, one line per name
     private void doSeeAllSwimmers() {
         divider();
-        System.out.println("Printing all swimmer names!\n");
+        System.out.println("The swimmers participating at this swim meet are:\n");
         for (Swimmer s : participatingSwimmers.getParticipatingSwimmers()) {
             System.out.println(s.getSwimmerName());
         }
