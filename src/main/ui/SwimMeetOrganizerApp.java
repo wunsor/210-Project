@@ -262,12 +262,19 @@ public class SwimMeetOrganizerApp {
         return null;
     }
 
-    // EFFECTS: handles giving a best time to the swimmer's event
+
+    // EFFECTS: handles giving a best time to the swimmer's event, if invalid,
+    //          sets the best time to zero and asks user to remove swimmer
     public Double handleEventTime() {
-        Double bestTime;
+        Double bestTime = 0.0;
         divider();
         System.out.println("Please enter the swimmer's best time for this event (in seconds):");
-        bestTime = Double.parseDouble(this.scanner.nextLine());
+        try {
+            bestTime = Double.parseDouble(this.scanner.nextLine());
+        } catch (Exception e) { 
+            System.out.println("Invalid swimmer time entered! Best time set to zero!");
+            System.out.println("Please remove this swimmer and add them again!");
+        }
 
         return bestTime;
     }
