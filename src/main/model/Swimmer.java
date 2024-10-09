@@ -7,6 +7,7 @@ public class Swimmer {
     String swimmerName; //the name of the swimmer
     ArrayList<Event> events; // list of the swimmers events
 
+    //EFFECTS: creates an instance of a swimmer with a name and a list of events which they swim
     public Swimmer(String name, ArrayList<Event> events) {
         this.swimmerName = name;
         this.events = events;
