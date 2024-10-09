@@ -56,6 +56,7 @@ public class SwimMeetOrganizerApp {
     }
 
     // EFFECTS: takes a menu input from the user and processes itC
+    @SuppressWarnings("methodlength")
     public void processMenu(String input) {
         divider();
         switch (input) {
@@ -108,6 +109,7 @@ public class SwimMeetOrganizerApp {
 
     // EFFECTS: prints heats and lane assignments for the swimmers in an event based on
     //          the organizeIntoHeats specification in ParticipatingSwimmers class
+    @SuppressWarnings("methodlength")
     private void handleHeatCreation(String eventName) {
         ArrayList<Swimmer> swimmersInEvent;
         swimmersInEvent = participatingSwimmers.organizeIntoHeats(eventName);
