@@ -12,5 +12,7 @@ A *bulleted* list:
 - As a user, I want to be able to organize the list of participating swimmers into heats based on their events and time.
 - As a user, I want to be able to lookup my name to find my events.
 - As a user, I also want to be able to remove a swimmer from the swim meet.
+- As a user, I want an option to save a list of participating swimmers and their events and best times.
+- As a user, I want an option to load a list of participating swimmers and their events and best times.
 
 An example of text with **bold** and *italic* fonts.  
