@@ -6,7 +6,6 @@ import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,6 +42,7 @@ public class JsonReaderTest extends JsonTest {
         eventList1.add(e1);
         ArrayList<Event> eventList2 = new ArrayList<Event>();
         eventList2.add(e2);
+        eventList1.add(e2);
         try {
             ParticipatingSwimmers ps = reader.read();
             assertEquals(2, ps.getParticipatingSwimmers().size());
