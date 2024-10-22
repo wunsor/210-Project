@@ -39,9 +39,9 @@ public class JsonReaderTest extends JsonTest {
         JsonReader reader = new JsonReader("./data/testReaderGeneralParticipatingSwimmers.json");
         Event e1 = new Event("fly", 55);
         Event e2 = new Event("free", 44);
-        List<Event> eventList1 = new ArrayList<Event>();
+        ArrayList<Event> eventList1 = new ArrayList<Event>();
         eventList1.add(e1);
-        List<Event> eventList2 = new ArrayList<Event>();
+        ArrayList<Event> eventList2 = new ArrayList<Event>();
         eventList2.add(e2);
         try {
             ParticipatingSwimmers ps = reader.read();
