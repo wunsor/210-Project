@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 import persistence.Writable;
 
 // Represents an Event which a swimmer might have, includes the name of the event and a time
@@ -14,6 +16,15 @@ public class Event implements Writable{
         this.eventTime = time;
 
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("eventName", eventName);
+        json.put("eventTime", eventTime);
+        return json;
+    }
+
 
     //setters and getters
     public String getEventName() {

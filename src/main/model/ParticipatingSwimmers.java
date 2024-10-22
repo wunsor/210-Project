@@ -111,11 +111,12 @@ public class ParticipatingSwimmers implements Writable{
         return json;
     }
 
+    //EFFECTS: return swimmers in ParticipatingSwimmers as a JSON array
     private JSONArray swimmersToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Swimmer s : swimmers) {
-            jsonArray.put(t.toJson());
+            jsonArray.put(s.toJson());
         }
 
         return jsonArray;

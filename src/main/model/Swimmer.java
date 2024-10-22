@@ -1,6 +1,10 @@
 package model;
 
 import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import persistence.*;
 
 // Represents a swimmer with, a name, and Events
@@ -43,7 +47,24 @@ public class Swimmer implements Writable{
         return 0;
     }   
     
-    
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", swimmerName);
+        json.put("events", eventsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns events in swimmer as a JSON array
+    private JSONArray eventsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Event e : events) {
+            jsonArray.put(e.toJson());
+        }
+
+        return jsonArray;
+    }
 
     //getters and setters
 
