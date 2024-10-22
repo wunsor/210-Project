@@ -2,8 +2,13 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represents a list of participating swimmers at a swim meet
-public class ParticipatingSwimmers {
+public class ParticipatingSwimmers implements Writable{
     private ArrayList<Swimmer> swimmers; //a list of swimmers
 
     //EFFECT: a list of all participating swimmer which is empty when initialized
@@ -97,6 +102,23 @@ public class ParticipatingSwimmers {
         }
 
         return false;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("swimmers", swimmersToJson());
+        return json;
+    }
+
+    private JSONArray swimmersToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Swimmer s : swimmers) {
+            jsonArray.put(t.toJson());
+        }
+
+        return jsonArray;
     }
 
 

@@ -1,7 +1,9 @@
 package model;
 
+import persistence.Writable;
+
 // Represents an Event which a swimmer might have, includes the name of the event and a time
-public class Event {
+public class Event implements Writable{
     private String eventName; // name of the event, ie. fly
     private double eventTime; // best time of the swimmer in that event in seconds
 
