@@ -1,27 +1,16 @@
-{
-    "swimmers": [
-        {
-            "name": "winsor",
-            "events": [
-                {
-                    "eventName": "fly",
-                    "eventTime": 55
-                },
-                {
-                    "eventName": "free",
-                    "eventTime": 44
-                }
-            ]
-        },
-        {
-            "name": "john",
-            "events": [
-                {
-                    "eventName": "free",
-                    "eventTime": 44
-                }
-            ]
-
-        }
-    ]
-}
+{"swimmers": [
+    {
+        "name": "winsor",
+        "events": [{
+            "eventTime": 55,
+            "eventName": "fly"
+        }]
+    },
+    {
+        "name": "john",
+        "events": [{
+            "eventTime": 44,
+            "eventName": "free"
+        }]
+    }
+]}

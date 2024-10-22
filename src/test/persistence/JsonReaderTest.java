@@ -39,8 +39,8 @@ public class JsonReaderTest extends JsonTest {
         Event e1 = new Event("fly", 55);
         Event e2 = new Event("free", 44);
         ArrayList<Event> eventList1 = new ArrayList<Event>();
-        eventList1.add(e1);
         ArrayList<Event> eventList2 = new ArrayList<Event>();
+        eventList1.add(e1);
         eventList2.add(e2);
         eventList1.add(e2);
         try {
