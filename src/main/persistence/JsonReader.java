@@ -13,6 +13,9 @@ import org.json.JSONObject;
 import model.*;
 
 // Represents a reader that reads ParticipatingSwimmers from JSON data stored in file
+
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class JsonReader {
     private String source;
 
@@ -48,7 +51,7 @@ public class JsonReader {
     }
 
     // MODIFIES: ps
-    // EFFECTS: parses swimmers from JSON object and adds them to workroom
+    // EFFECTS: parses swimmers from JSON object and adds them to participating swimmers
     private void addSwimmers(ParticipatingSwimmers ps, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("swimmers");
         for (Object json : jsonArray) {
@@ -58,7 +61,7 @@ public class JsonReader {
     }
 
     // MODIFIES: ps
-    // EFFECTS: parses swimmer from JSON object and adds it to workroom
+    // EFFECTS: parses swimmer from JSON object and adds it to participating swimmers
     private void addSwimmer(ParticipatingSwimmers ps, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         ArrayList<Event> events = readEvents(jsonObject);

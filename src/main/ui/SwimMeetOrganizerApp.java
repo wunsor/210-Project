@@ -11,6 +11,9 @@ import model.Swimmer;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+
 //EFFECTS: creates an instance of a swim meet application in the ui.
 public class SwimMeetOrganizerApp {
     private static final String JSON_STORE = "./data/participatingswimmers.json";
