@@ -1,0 +1,14 @@
+{
+    "swimmers": [
+        {
+            "name": "winsor",
+            "event": "fly",
+            "time": "55"
+        },
+        {
+            "name": "john",
+            "category": "free",
+            "time": "44"
+        }
+    ]
+}
