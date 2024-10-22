@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 // Represents a list of participating swimmers at a swim meet
-public class ParticipatingSwimmers implements Writable{
+public class ParticipatingSwimmers implements Writable {
     private ArrayList<Swimmer> swimmers; //a list of swimmers
 
     //EFFECT: a list of all participating swimmer which is empty when initialized

@@ -1,0 +1,16 @@
+{"swimmers": [
+    {
+        "name": "winsor",
+        "events": [{
+            "eventTime": 55,
+            "eventName": "fly"
+        }]
+    },
+    {
+        "name": "amon",
+        "events": [{
+            "eventTime": 66,
+            "eventName": "fly"
+        }]
+    }
+]}

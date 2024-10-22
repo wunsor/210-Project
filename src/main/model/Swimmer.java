@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import persistence.*;
 
 // Represents a swimmer with, a name, and Events
-public class Swimmer implements Writable{
+public class Swimmer implements Writable {
     String swimmerName; //the name of the swimmer
     ArrayList<Event> events; // list of the swimmers events
 
