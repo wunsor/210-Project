@@ -23,7 +23,7 @@ public class Swimmer implements Writable {
     //EFFECTS: takes an event name, returns true if the swimmer has that event, false otherwise
     public boolean checkIfSwimmerHasEvent(String event) {
         for (Event e: events) {
-            if (e.getEventName() == event) {
+            if (e.getEventName().equals(event)) {
                 return true;
             }
         }
@@ -40,7 +40,7 @@ public class Swimmer implements Writable {
     //EFFECTS: finds an event with the same name and returns that time, returns 0 otherwise
     public double getSpecificEventTime(String eventName) {
         for (Event e : events) {
-            if (e.getEventName() == eventName) {
+            if (e.getEventName().equals(eventName)) {
                 return e.getEventTime();
             }
         }
