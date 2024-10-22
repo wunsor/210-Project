@@ -1,14 +1,22 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import model.Event;
 import model.ParticipatingSwimmers;
 import model.Swimmer;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 //EFFECTS: creates an instance of a swim meet application in the ui.
 public class SwimMeetOrganizerApp {
+    private static final String JSON_STORE = "./data/participatingswimmers.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+
     private Scanner scanner; // a scanner for read line
     private boolean programRunStatus; // whether the program is running or not
     private ParticipatingSwimmers participatingSwimmers; // participating swimmers at the swim meet
@@ -33,6 +41,8 @@ public class SwimMeetOrganizerApp {
         this.programRunStatus = true;
         scanner = new Scanner(System.in);
         participatingSwimmers = new ParticipatingSwimmers();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
 
     }
 
@@ -51,6 +61,8 @@ public class SwimMeetOrganizerApp {
         System.out.println("e: Lookup a swimmer");
         System.out.println("r: See all swimmers participating");
         System.out.println("t: Create heats");
+        System.out.println("s: Save participating swimmers");
+        System.out.println("l: Load participating swimmers");
         System.out.println("y: Quit application");
         divider();
     }
@@ -75,6 +87,12 @@ public class SwimMeetOrganizerApp {
             case "t":
                 doCreateHeats();
                 break;
+            case "s":
+                doSaveSwimmers();
+                break;
+            case "l":
+                doLoadSwimmers();
+                break;
             case "y":
                 quitProgram();
                 break;
@@ -82,6 +100,29 @@ public class SwimMeetOrganizerApp {
                 System.out.println("Invalid input! Please try again!");
         }
         divider();
+    }
+
+    // EFFECTS: saves the participating swimmers to file
+    private void doSaveSwimmers() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(participatingSwimmers);
+            jsonWriter.close();
+            System.out.println("Saved to" + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads participating swimmers from file
+    private void doLoadSwimmers() {
+        try {
+            participatingSwimmers = jsonReader.read();
+            System.out.println("Loaded from" + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
     // EFFECTS: creates heats based on an event name
