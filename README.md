@@ -16,3 +16,11 @@ A *bulleted* list:
 - As a user, I want an option to load a list of participating swimmers and their events and best times.
 
 An example of text with **bold** and *italic* fonts.  
+
+**Instructions for End User**
+- how to add an X to a Y
+- how to generate the first of the two additional actions
+- how to generate the second of the two additional required actions
+- where to find the visual component that was added
+- how to save the state of the applicaiton to file
+- how to load the state of the application from file
