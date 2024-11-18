@@ -90,8 +90,13 @@ public class AddSwimmerWindow {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                recordUserInput();
-                window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
+                try {
+                    recordUserInput();
+                } catch (Exception e1) {
+                    new ErrorWindow();
+                } finally {
+                    window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
+                }  
             }
             
         });

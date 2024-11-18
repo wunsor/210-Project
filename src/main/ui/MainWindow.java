@@ -59,6 +59,7 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 AddSwimmerWindow addWindow = new AddSwimmerWindow();
+                participatingSwimmers.addSwimmer(addWindow.getSwimmerToAdd());
             }
             
         });
