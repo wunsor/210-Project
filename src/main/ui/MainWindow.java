@@ -11,9 +11,10 @@ import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import model.ParticipatingSwimmers;
-import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -46,16 +47,18 @@ public class MainWindow {
     public MainWindow() {
         participatingSwimmers = new ParticipatingSwimmers();
         window = new JFrame();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         initializeWindow();
         initializePanel();
         initializeIcons();
         initializeButtons();
         initializeListeners();
+        initializeSaveAndLoadListeners();
 
     }
 
-
-    //EFFECTS: initializes the action listeners
+    // EFFECTS: initializes the action listeners
     private void initializeListeners() {
         addSwimmerButton.addActionListener(new ActionListener() {
 
@@ -63,7 +66,7 @@ public class MainWindow {
             public void actionPerformed(ActionEvent e) {
                 doAddSwimmer();
             }
-            
+
         });
 
         showAllButton.addActionListener(new ActionListener() {
@@ -72,7 +75,7 @@ public class MainWindow {
             public void actionPerformed(ActionEvent e) {
                 new ShowAllSwimmersWindow(participatingSwimmers);
             }
-            
+
         });
 
         lookupButton.addActionListener(new ActionListener() {
@@ -81,17 +84,51 @@ public class MainWindow {
             public void actionPerformed(ActionEvent e) {
                 new LookupSwimmerWindow(participatingSwimmers);
             }
-            
+
+        });
+
+    }
+
+    //EFFECTS: initializes the saving and loading action listeners
+    private void initializeSaveAndLoadListeners() {
+        saveButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    jsonWriter.open();
+                    jsonWriter.write(participatingSwimmers);
+                    jsonWriter.close();
+                    System.out.println("Saved to" + JSON_STORE);
+                } catch (FileNotFoundException d) {
+                    new ErrorWindow();
+                }
+            }
+
+        });
+
+        loadButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent h) {
+                try {
+                    participatingSwimmers = jsonReader.read();
+                    System.out.println("Loaded from" + JSON_STORE);
+                } catch (IOException e) {
+                    new ErrorWindow();
+                }
+            }
+
         });
     }
 
-    //MODIFIES: this
-    //EFFECTS: adds swimmer based off addswimmerwindow
+    // MODIFIES: this
+    // EFFECTS: adds swimmer based off addswimmerwindow
     private void doAddSwimmer() {
         new AddSwimmerWindow(this);
     }
 
-    //EFFECTS: initializes the button icons
+    // EFFECTS: initializes the button icons
     private void initializeIcons() {
         addIcon = new ImageIcon("./Images/Add.png");
         removeIcon = new ImageIcon("./Images/Remove.png");
@@ -128,7 +165,7 @@ public class MainWindow {
 
     }
 
-    //EFFECTS: formats the button icons
+    // EFFECTS: formats the button icons
     private void putButtonIcons() {
         addSwimmerButton.setBackground(Color.WHITE);
         removeSwimmerButton.setBackground(Color.WHITE);
