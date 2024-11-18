@@ -48,7 +48,20 @@ public class MainWindow {
         initializePanel();
         initializeIcons();
         initializeButtons();
+        initializeListeners();
 
+    }
+
+    //EFFECTS: initializes the action listeners
+    private void initializeListeners() {
+        addSwimmerButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddSwimmerWindow addWindow = new AddSwimmerWindow();
+            }
+            
+        });
     }
 
     //EFFECTS: initializes the button icons
