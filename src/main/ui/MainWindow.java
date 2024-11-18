@@ -74,6 +74,15 @@ public class MainWindow {
             }
             
         });
+
+        lookupButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LookupSwimmerWindow(participatingSwimmers);
+            }
+            
+        });
     }
 
     //MODIFIES: this
