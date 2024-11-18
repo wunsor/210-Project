@@ -52,7 +52,7 @@ public class LookupSwimmerWindow {
                     window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
                 } else {
                     ArrayList<String> events = ps.lookupSwimmersEvents(swimmerName);
-                    String toAdd = String.join(",", events);
+                    String toAdd = String.join(", ", events);
                     blankLabel.setText("Swimmer's events are: " + toAdd);
                 }
 
