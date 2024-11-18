@@ -54,6 +54,7 @@ public class MainWindow {
         initializeIcons();
         initializeButtons();
         initializeListeners();
+        initializeRemoveListener();
         initializeSaveAndLoadListeners();
 
     }
@@ -87,6 +88,23 @@ public class MainWindow {
 
         });
 
+    }
+
+    //EFFECTS initializes the remove listener
+    private void initializeRemoveListener() {
+        removeSwimmerButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                doRemoveSwimmer(); 
+            }
+            
+        });
+    }
+
+    //EFFECTS: removes swimmer based on action listener
+    protected void doRemoveSwimmer() {
+        new RemoveSwimmerWindow(this);
     }
 
     //EFFECTS: initializes the saving and loading action listeners
@@ -197,7 +215,7 @@ public class MainWindow {
         window.setVisible(true);
         window.setTitle("Winsor's Swim Meet Organizer");
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        window.setSize(250, 500);
+        window.setSize(250, 450);
         window.setLocationRelativeTo(null);
         window.setResizable(false);
     }

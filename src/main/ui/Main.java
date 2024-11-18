@@ -7,6 +7,7 @@ public class Main {
         // Uncomment for consol based UI
         // new SwimMeetOrganizerApp();
 
+        // GUI comment below for consol based UI
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
