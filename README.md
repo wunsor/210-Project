@@ -18,11 +18,10 @@ A *bulleted* list:
 An example of text with **bold** and *italic* fonts.  
 
 **Instructions for End User**
-- To add a swimmer to the swim meet, click the "Add Swimmer" button in the main menu.
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by clicking the "Add Swimmer" button in the main menu.
     - Once the Add Swimmer window appears, indicate which events the swimmer is swimming using the checkboxes, and enter their best times in the text fields. Hit "save" once this is completed.
-- To lookup a swimmer, click the "Lookup Swimmer" button in the main menu.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by clicking the "Lookup Swimmer" button in the main menu.
     - Once the Lookup Swimmer window appears, enter their name, hit 'enter' and view the swimmers events at the bottom of the window.
-- To see all participating swimmers, click the "Show All" button, and view all the swimmers in the window that appears.
-- Image icons can be found on each button in the main menu.
-- To save the entered swimmers, hit the "Save" button in the main menu.
-- To load a prior file, hit the "Load" button in the main menu.
+- You can locate my visual component by viewing the image icons which can be found on each button in the main menu.
+- You can save the state of my application by hitting the "Save" button in the main menu.
+- You can reload the state of my application by hitting the "Load" button in the main menu.
