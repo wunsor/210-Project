@@ -103,6 +103,8 @@ public class AddSwimmerWindow {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: updates ps in main window
     private void updateMainWindow() {
         mainWindow.getParticipatingSwimmers().addSwimmer(swimmerToAdd);
     }
