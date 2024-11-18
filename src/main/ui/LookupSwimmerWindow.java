@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 
 import model.*;
 
+// Represents and facilitates the function of the lookupfunction
 public class LookupSwimmerWindow {
     private ParticipatingSwimmers ps;
     private JFrame window;

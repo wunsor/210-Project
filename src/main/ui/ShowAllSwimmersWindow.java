@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import model.ParticipatingSwimmers;
 import model.*;
 
+// Represents and facilitates the Show all swimmer function in GUI
 public class ShowAllSwimmersWindow {
     private ParticipatingSwimmers ps;
     private JFrame window;

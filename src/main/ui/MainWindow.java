@@ -113,14 +113,7 @@ public class MainWindow {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    jsonWriter.open();
-                    jsonWriter.write(participatingSwimmers);
-                    jsonWriter.close();
-                    System.out.println("Saved to" + JSON_STORE);
-                } catch (FileNotFoundException d) {
-                    new ErrorWindow();
-                }
+                attemptSave();
             }
 
         });
@@ -138,6 +131,18 @@ public class MainWindow {
             }
 
         });
+    }
+
+    //EFFECTS: saves participating swimmers to file
+    private void attemptSave() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(participatingSwimmers);
+            jsonWriter.close();
+            System.out.println("Saved to" + JSON_STORE);
+        } catch (FileNotFoundException d) {
+            new ErrorWindow();
+        }
     }
 
     // MODIFIES: this
@@ -215,7 +220,7 @@ public class MainWindow {
         window.setVisible(true);
         window.setTitle("Winsor's Swim Meet Organizer");
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        window.setSize(250, 450);
+        window.setSize(250, 470);
         window.setLocationRelativeTo(null);
         window.setResizable(false);
     }

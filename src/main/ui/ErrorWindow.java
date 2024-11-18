@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+// Represents an Error Window for when errors occur
 public class ErrorWindow {
     private JFrame window;
     private JPanel panel;

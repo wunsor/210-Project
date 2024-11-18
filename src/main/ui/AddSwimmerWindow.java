@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import model.Event;
 import model.*;
 
+// Represents the window for Add Swimmer once prompted
 public class AddSwimmerWindow {
     private Swimmer swimmerToAdd;
     private MainWindow mainWindow;

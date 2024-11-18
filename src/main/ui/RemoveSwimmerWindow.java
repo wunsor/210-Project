@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import model.Swimmer;
 
+// Represents and facilititates the Remove Swimmer function in the GUI
 public class RemoveSwimmerWindow {
     private String swimmerToRemove;
     private MainWindow mainWindow;
