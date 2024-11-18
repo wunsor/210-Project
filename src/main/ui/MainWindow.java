@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import model.ParticipatingSwimmers;
+import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -43,6 +44,7 @@ public class MainWindow {
 
     // EFFECTS: creates a main window
     public MainWindow() {
+        participatingSwimmers = new ParticipatingSwimmers();
         window = new JFrame();
         initializeWindow();
         initializePanel();
@@ -52,17 +54,32 @@ public class MainWindow {
 
     }
 
+
     //EFFECTS: initializes the action listeners
     private void initializeListeners() {
         addSwimmerButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddSwimmerWindow addWindow = new AddSwimmerWindow();
-                participatingSwimmers.addSwimmer(addWindow.getSwimmerToAdd());
+                doAddSwimmer();
             }
             
         });
+
+        showAllButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ShowAllSwimmersWindow(participatingSwimmers);
+            }
+            
+        });
+    }
+
+    //MODIFIES: this
+    //EFFECTS: adds swimmer based off addswimmerwindow
+    private void doAddSwimmer() {
+        new AddSwimmerWindow(this);
     }
 
     //EFFECTS: initializes the button icons
@@ -137,5 +154,10 @@ public class MainWindow {
         window.setSize(250, 500);
         window.setLocationRelativeTo(null);
         window.setResizable(false);
+    }
+
+    // getters
+    public ParticipatingSwimmers getParticipatingSwimmers() {
+        return this.participatingSwimmers;
     }
 }
