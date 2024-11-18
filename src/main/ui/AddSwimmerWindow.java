@@ -2,12 +2,10 @@ package ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -18,10 +16,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.Event;
-import model.Swimmer;
+import model.*;
 
 public class AddSwimmerWindow {
     private Swimmer swimmerToAdd;
+    private MainWindow mainWindow;
     
     private JFrame window;
     private JPanel panel;
@@ -45,7 +44,8 @@ public class AddSwimmerWindow {
     private JTextField freeTime;
     
     //EFFECTS: creates a new window to add a new swimmer
-    public AddSwimmerWindow() {
+    public AddSwimmerWindow(MainWindow mw) {
+        mainWindow = mw;
         window = new JFrame();
         initializeWindow();
         initializePanel();
@@ -92,6 +92,7 @@ public class AddSwimmerWindow {
             public void actionPerformed(ActionEvent e) {
                 try {
                     recordUserInput();
+                    updateMainWindow();
                 } catch (Exception e1) {
                     new ErrorWindow();
                 } finally {
@@ -100,6 +101,10 @@ public class AddSwimmerWindow {
             }
             
         });
+    }
+
+    private void updateMainWindow() {
+        mainWindow.getParticipatingSwimmers().addSwimmer(swimmerToAdd);
     }
 
     //MODIFIES: this
