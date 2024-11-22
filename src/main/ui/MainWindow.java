@@ -59,7 +59,7 @@ public class MainWindow {
 
     }
 
-    // EFFECTS: initializes the action listeners
+    // EFFECTS: initializes the add, show, lookup button listeners
     private void initializeListeners() {
         addSwimmerButton.addActionListener(new ActionListener() {
 

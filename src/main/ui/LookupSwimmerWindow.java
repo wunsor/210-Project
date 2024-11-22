@@ -25,6 +25,7 @@ public class LookupSwimmerWindow {
     private JLabel labelInput;
     private JLabel blankLabel;
 
+    //EFFECTS: creates an instance of the lookup swimmer popup
     public LookupSwimmerWindow(ParticipatingSwimmers ps) {
         this.ps = ps;
         window = new JFrame();

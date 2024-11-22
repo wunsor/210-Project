@@ -17,6 +17,7 @@ public class ShowAllSwimmersWindow {
     private JFrame window;
     private JPanel panel;
 
+    //EFFECTS: creates an instance of the show all popup
     public ShowAllSwimmersWindow(ParticipatingSwimmers ps) {
         this.ps = ps;
         window = new JFrame();
