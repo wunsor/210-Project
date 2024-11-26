@@ -34,3 +34,10 @@ Swimmer added!
 Swimmer removed!
 Looked up a swimmer!
 Swimmer added!
+
+Phase 4: Task 3 (Refactoring)
+
+Firstly, I would try to refactor the shared behaviour between all of my window classes so that their shared behaviour of the window’s construction is abstracted. Between the windows, much of the window setup for things that initialize the windows behaviour or the layout of the window is the exact same. Creating this abstract class would then reduce the coupling between my classes, as some change to how the window initializes would no longer need to be reflected in every window class within my GUI.
+
+Second, I would perhaps create new GUI classes to handle the saving and loading function within the GUI. Currently saving and loading is implemented within the MainWindow class making the MainWindow incohesive. The MainWindow exists purely to act as a bridge to facilitate the other user stories. As such, the window itself should not deal with the physical saving and loading as this function is different from what the window is intended for. In addition, I would also like to refactor my GUI such that the program is less dependent on the MainWindow. Currently the MainWindow also stores information on the state of the program which once again isn’t very cohesive with the intention of the MainWindow. As such, a new class which purely facilitates the state of the swim meet instead of the MainWindow could be created. This would reduce the dependencies and associations (decreasing coupling) of the other window classes on MainWindow and better fit the intended role of the MainWindow (increasing cohesion).
+
