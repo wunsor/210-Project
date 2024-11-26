@@ -26,7 +26,7 @@ An example of text with **bold** and *italic* fonts.
 - You can save the state of my application by hitting the "Save" button in the main menu.
 - You can reload the state of my application by hitting the "Load" button in the main menu.
 
-Phase 4: Task 2
+Phase 4: Task 2 (Event logging)
 
 Logged Events:
 Swimmer added!
