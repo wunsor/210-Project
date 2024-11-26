@@ -69,10 +69,11 @@ public class ParticipatingSwimmers implements Writable {
                 for (SwimEvent e : s.getSwimmerEvents()) {
                     eventsStringList.add(e.getEventName());
                 }
+                EventLog.getInstance().logEvent(new Event("Looked up a swimmer!"));
                 return eventsStringList;
             }
         }
-        EventLog.getInstance().logEvent(new Event("Looked up swimmer!"));
+        EventLog.getInstance().logEvent(new Event("Looked up a swimmer!"));
         return eventsStringList;
 
     }
