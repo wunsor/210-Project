@@ -11,9 +11,13 @@ import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import model.Event;
+import model.EventLog;
 import model.ParticipatingSwimmers;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -50,6 +54,7 @@ public class MainWindow {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         initializeWindow();
+        initializeWindowListener();
         initializePanel();
         initializeIcons();
         initializeButtons();
@@ -57,6 +62,46 @@ public class MainWindow {
         initializeRemoveListener();
         initializeSaveAndLoadListeners();
 
+    }
+
+    //EFFECTS: initializes the window listener
+    @SuppressWarnings("methodlength")
+    private void initializeWindowListener() {
+        window.addWindowListener(new WindowListener() {
+
+            @Override
+            public void windowOpened(WindowEvent e) {
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                System.out.println("Logged Events:");
+                for (Event event : EventLog.getInstance()) {
+                    System.out.println(event.getDescription());
+                }
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+            }
+
+        });
     }
 
     // EFFECTS: initializes the add, show, lookup button listeners
@@ -90,24 +135,24 @@ public class MainWindow {
 
     }
 
-    //EFFECTS initializes the remove listener
+    // EFFECTS initializes the remove listener
     private void initializeRemoveListener() {
         removeSwimmerButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                doRemoveSwimmer(); 
+                doRemoveSwimmer();
             }
-            
+
         });
     }
 
-    //EFFECTS: removes swimmer based on action listener
+    // EFFECTS: removes swimmer based on action listener
     protected void doRemoveSwimmer() {
         new RemoveSwimmerWindow(this);
     }
 
-    //EFFECTS: initializes the saving and loading action listeners
+    // EFFECTS: initializes the saving and loading action listeners
     private void initializeSaveAndLoadListeners() {
         saveButton.addActionListener(new ActionListener() {
 
@@ -133,7 +178,7 @@ public class MainWindow {
         });
     }
 
-    //EFFECTS: saves participating swimmers to file
+    // EFFECTS: saves participating swimmers to file
     private void attemptSave() {
         try {
             jsonWriter.open();

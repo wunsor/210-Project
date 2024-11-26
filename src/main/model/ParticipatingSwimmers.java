@@ -42,7 +42,7 @@ public class ParticipatingSwimmers implements Writable {
         for (Double d : listForTimes) {
             matchSwimmerToTime(event, initialList, finalList, d);
         }
-
+        EventLog.getInstance().logEvent(new Event("Organized into heats!"));
         return finalList;
 
     }
@@ -72,6 +72,7 @@ public class ParticipatingSwimmers implements Writable {
                 return eventsStringList;
             }
         }
+        EventLog.getInstance().logEvent(new Event("Looked up swimmer!"));
         return eventsStringList;
 
     }
@@ -80,6 +81,7 @@ public class ParticipatingSwimmers implements Writable {
     //EFFECTS: takes a swimmer and adds them to the list of participating swimmers
     public void addSwimmer(Swimmer swimmer) {
         this.swimmers.add(swimmer);
+        EventLog.getInstance().logEvent(new Event("Swimmer added!"));
     }
 
     //MODIFIES: this
@@ -91,6 +93,7 @@ public class ParticipatingSwimmers implements Writable {
                 this.swimmers.remove(swimmers.get(i));
             }
         }
+        EventLog.getInstance().logEvent(new Event("Swimmer removed!"));
     }
 
     //EFFECTS: checks if a swimmer name exists within participating swimmers
