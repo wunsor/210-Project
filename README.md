@@ -25,3 +25,12 @@ An example of text with **bold** and *italic* fonts.
 - You can locate my visual component by viewing the image icons which can be found on each button in the main menu.
 - You can save the state of my application by hitting the "Save" button in the main menu.
 - You can reload the state of my application by hitting the "Load" button in the main menu.
+
+Phase 4: Task 2
+
+Logged Events:
+Swimmer added!
+Swimmer added!
+Swimmer removed!
+Looked up a swimmer!
+Swimmer added!
