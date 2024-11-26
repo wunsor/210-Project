@@ -66,7 +66,7 @@ public class ParticipatingSwimmers implements Writable {
         eventsStringList = new ArrayList<>();
         for (Swimmer s : swimmers) {
             if (s.getSwimmerName().equals(name)) {
-                for (Event e : s.getSwimmerEvents()) {
+                for (SwimEvent e : s.getSwimmerEvents()) {
                     eventsStringList.add(e.getEventName());
                 }
                 return eventsStringList;

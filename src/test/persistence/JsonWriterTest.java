@@ -16,13 +16,13 @@ public class JsonWriterTest extends JsonTest {
 
     Swimmer s1;
     Swimmer s2;
-    ArrayList<Event> eventList1 = new ArrayList<Event>();
-    ArrayList<Event> eventList2 = new ArrayList<Event>();
+    ArrayList<SwimEvent> eventList1 = new ArrayList<SwimEvent>();
+    ArrayList<SwimEvent> eventList2 = new ArrayList<SwimEvent>();
 
     @BeforeEach
     void runBefore() {
-        Event e1 = new Event("fly", 55);
-        Event e2 = new Event("free", 44);
+        SwimEvent e1 = new SwimEvent("fly", 55);
+        SwimEvent e2 = new SwimEvent("free", 44);
         
         eventList1.add(e1); 
         eventList2.add(e2);

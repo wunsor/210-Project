@@ -64,14 +64,14 @@ public class JsonReader {
     // EFFECTS: parses swimmer from JSON object and adds it to participating swimmers
     private void addSwimmer(ParticipatingSwimmers ps, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
-        ArrayList<Event> events = readEvents(jsonObject);
+        ArrayList<SwimEvent> events = readEvents(jsonObject);
         Swimmer swimmer = new Swimmer(name, events);
         ps.addSwimmer(swimmer);
     }
 
     // EFFECTS: parses events from JSON object and complies a list of events from it
-    private ArrayList<Event> readEvents(JSONObject jsonObject) {
-        ArrayList<Event> eventList = new ArrayList<>();
+    private ArrayList<SwimEvent> readEvents(JSONObject jsonObject) {
+        ArrayList<SwimEvent> eventList = new ArrayList<>();
         JSONArray jsonArray = jsonObject.getJSONArray("events");
         for (Object json : jsonArray) {
             JSONObject nextEvent = (JSONObject) json;
@@ -81,10 +81,10 @@ public class JsonReader {
     }
 
     // EFFECTS: parses event from JSON object and returns it
-    private Event addEvent(JSONObject jsonObject) {
+    private SwimEvent addEvent(JSONObject jsonObject) {
         String name = jsonObject.getString("eventName");
         Double time = jsonObject.getDouble("eventTime");
-        return new Event(name, time);
+        return new SwimEvent(name, time);
 
     }
 

@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import model.Event;
+import model.SwimEvent;
 import model.*;
 
 // Represents the window for Add Swimmer once prompted
@@ -114,22 +114,22 @@ public class AddSwimmerWindow {
     //EFFECTS: reads the user input and sets a swimmer of this frame
     protected void recordUserInput() {
         String name = swimmerName.getText();
-        ArrayList<Event> events = new ArrayList<>();
+        ArrayList<SwimEvent> events = new ArrayList<>();
 
         if (flyBox.isSelected()) {
-            events.add(new Event("fly", Double.parseDouble(flyTime.getText())));
+            events.add(new SwimEvent("fly", Double.parseDouble(flyTime.getText())));
         }
 
         if (backBox.isSelected()) {
-            events.add(new Event("back", Double.parseDouble(backTime.getText())));
+            events.add(new SwimEvent("back", Double.parseDouble(backTime.getText())));
         }
 
         if (breastBox.isSelected()) {
-            events.add(new Event("breast", Double.parseDouble(breastTime.getText())));
+            events.add(new SwimEvent("breast", Double.parseDouble(breastTime.getText())));
         }
 
         if (freeBox.isSelected()) {
-            events.add(new Event("free", Double.parseDouble(freeTime.getText())));
+            events.add(new SwimEvent("free", Double.parseDouble(freeTime.getText())));
         }
 
         this.swimmerToAdd = new Swimmer(name, events);

@@ -38,10 +38,10 @@ public class JsonReaderTest extends JsonTest {
     @Test
     void testReaderGeneralParticipatingSwimmers() {
         JsonReader reader = new JsonReader("./data/testReaderGeneralParticipatingSwimmers.json");
-        Event e1 = new Event("fly", 55);
-        Event e2 = new Event("free", 44);
-        ArrayList<Event> eventList1 = new ArrayList<Event>();
-        ArrayList<Event> eventList2 = new ArrayList<Event>();
+        SwimEvent e1 = new SwimEvent("fly", 55);
+        SwimEvent e2 = new SwimEvent("free", 44);
+        ArrayList<SwimEvent> eventList1 = new ArrayList<SwimEvent>();
+        ArrayList<SwimEvent> eventList2 = new ArrayList<SwimEvent>();
         eventList1.add(e1);
         eventList2.add(e2);
         eventList1.add(e2);

@@ -10,10 +10,10 @@ import persistence.*;
 // Represents a swimmer with, a name, and Events
 public class Swimmer implements Writable {
     String swimmerName; //the name of the swimmer
-    ArrayList<Event> events; // list of the swimmers events
+    ArrayList<SwimEvent> events; // list of the swimmers events
 
     //EFFECTS: creates an instance of a swimmer with a name and a list of events which they swim
-    public Swimmer(String name, ArrayList<Event> events) {
+    public Swimmer(String name, ArrayList<SwimEvent> events) {
         this.swimmerName = name;
         this.events = events;
 
@@ -22,7 +22,7 @@ public class Swimmer implements Writable {
     //REQUIRES: event must be one of fly, back, breast, or free
     //EFFECTS: takes an event name, returns true if the swimmer has that event, false otherwise
     public boolean checkIfSwimmerHasEvent(String event) {
-        for (Event e: events) {
+        for (SwimEvent e: events) {
             if (e.getEventName().equals(event)) {
                 return true;
             }
@@ -32,14 +32,14 @@ public class Swimmer implements Writable {
 
     //MODIFIES: this
     //EFFECTS: adds an event to the swimmer's events
-    public void addEvent(Event event) {
+    public void addEvent(SwimEvent event) {
         this.events.add(event);
     }
 
     //REQUIRES: eventName is one of fly, back, breast, free
     //EFFECTS: finds an event with the same name and returns that time, returns 0 otherwise
     public double getSpecificEventTime(String eventName) {
-        for (Event e : events) {
+        for (SwimEvent e : events) {
             if (e.getEventName().equals(eventName)) {
                 return e.getEventTime();
             }
@@ -59,7 +59,7 @@ public class Swimmer implements Writable {
     private JSONArray eventsToJson() {
         JSONArray jsonArray = new JSONArray();
 
-        for (Event e : events) {
+        for (SwimEvent e : events) {
             jsonArray.put(e.toJson());
         }
 
@@ -72,7 +72,7 @@ public class Swimmer implements Writable {
         return this.swimmerName;
     }
 
-    public ArrayList<Event> getSwimmerEvents() {
+    public ArrayList<SwimEvent> getSwimmerEvents() {
         return this.events;
     }
 }

@@ -13,14 +13,14 @@ public class SwimmerTest {
     Swimmer s1;
     Swimmer s2;
 
-    Event e1 = new Event("fly", 1);
-    Event e2 = new Event("back", 2);
-    Event e3 = new Event("free", 3);
-    Event e4 = new Event("breast", 4);
+    SwimEvent e1 = new SwimEvent("fly", 1);
+    SwimEvent e2 = new SwimEvent("back", 2);
+    SwimEvent e3 = new SwimEvent("free", 3);
+    SwimEvent e4 = new SwimEvent("breast", 4);
 
-    ArrayList<Event> eventList1;
-    ArrayList<Event> eventList2;
-    ArrayList<Event> eventList3;
+    ArrayList<SwimEvent> eventList1;
+    ArrayList<SwimEvent> eventList2;
+    ArrayList<SwimEvent> eventList3;
     
     @BeforeEach
     void runBefore() {

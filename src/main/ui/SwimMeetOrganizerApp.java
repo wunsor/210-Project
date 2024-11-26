@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import model.Event;
+import model.SwimEvent;
 import model.ParticipatingSwimmers;
 import model.Swimmer;
 import persistence.JsonReader;
@@ -247,7 +247,7 @@ public class SwimMeetOrganizerApp {
         divider();
         System.out.println("Please enter the swimmer's name:");
         String swimmerName = this.scanner.nextLine();
-        ArrayList<Event> swimmerEvents = handleEventAdding();
+        ArrayList<SwimEvent> swimmerEvents = handleEventAdding();
 
         Swimmer swimmerToAdd = new Swimmer(swimmerName, swimmerEvents);
 
@@ -258,8 +258,8 @@ public class SwimMeetOrganizerApp {
     }
 
     // EFFECTS: handles the adding of multiple events for a swimmer
-    public ArrayList<Event> handleEventAdding() {
-        ArrayList<Event> swimmerEventList;
+    public ArrayList<SwimEvent> handleEventAdding() {
+        ArrayList<SwimEvent> swimmerEventList;
         swimmerEventList = new ArrayList<>();
         Boolean keepAddingEvents = true;
 
@@ -285,22 +285,22 @@ public class SwimMeetOrganizerApp {
     }
 
     // EFFECTS: handles creating an event with a name and time for a swimmer
-    public Event handleEvent() {
+    public SwimEvent handleEvent() {
         divider();
         System.out.println("Please enter if the swimmer is in fly, back, breast, or free:");
         System.out.println("(Make sure to not add the same event twice!)");
         String swimmerEventName = this.scanner.nextLine();
         switch (swimmerEventName) {
             case "fly":
-                return new Event("fly", handleEventTime());
+                return new SwimEvent("fly", handleEventTime());
             case "back":
-                return new Event("back", handleEventTime());
+                return new SwimEvent("back", handleEventTime());
 
             case "breast":
-                return new Event("breast", handleEventTime());
+                return new SwimEvent("breast", handleEventTime());
 
             case "free":
-                return new Event("free", handleEventTime());
+                return new SwimEvent("free", handleEventTime());
 
             default:
                 System.out.println("Invalid event name! Please try again!");

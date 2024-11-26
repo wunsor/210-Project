@@ -6,13 +6,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class EventTest {
-    Event e1;
-    Event e2;
+    SwimEvent e1;
+    SwimEvent e2;
 
     @BeforeEach
     void runBefore() {
-        e1 = new Event("fly",1);
-        e2 = new Event("back", 2);
+        e1 = new SwimEvent("fly",1);
+        e2 = new SwimEvent("back", 2);
     }
 
     @Test
